@@ -10,7 +10,7 @@ public class HockeyDriver {
 		scanner = new Scanner(System.in);
 	}
 
-	public void play() {
+	public void play() { 
 		mapleLeafs = initializeTeam();
 		displayTeam();
 		displayPossessionStatus();
