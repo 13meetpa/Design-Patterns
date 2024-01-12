@@ -9,5 +9,5 @@ public abstract class Player {
     protected OffenceBehavior offenceBehavior;
     protected Random rand;
 
-    
+
 }
