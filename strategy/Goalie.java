@@ -1,5 +1,24 @@
 package strategy;
 
-public class Goalie {
-    
+public class Goalie extends Player {
+
+    public Goalie(String firstName, String lastName)
+    {
+        super(firstName, lastName);
+        setDefenceBehavior();
+        setOffenceBehavior();
+    }
+    public void setDefenceBehavior() {
+        this.defenceBehavior = new BlockGoalBehavior();
+    }
+
+    public void setOffenceBehavior() {
+        this.offenceBehavior = new BlockGoalBehavior();
+    }
+
+    public String toString()
+    {
+        return super.toString() + " plays the position: Goalie";
+    }
+
 }
