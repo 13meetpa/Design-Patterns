@@ -1,9 +1,16 @@
 package strategy;
 
 import java.util.Random;
-
+/**
+ * A behavior representing blocking actions related to goalkeeping in the hockey game.
+ * Implements both DefenceBehavior and OffenceBehavior interfaces.
+ */
 public class BlockGoalBehavior implements DefenceBehavior, OffenceBehavior {
-    
+    /**
+     * Performs a defensive or offensive play action related to goalkeeping.
+     *
+     * @return A string representing the defensive or offensive play action.
+     */
     public String play()
     {
         Random random = new Random();
