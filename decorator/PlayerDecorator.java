@@ -1,65 +1,49 @@
 package decorator;
 
 import java.util.ArrayList;
-
+/**
+ * PlayerDecorator class represents an abstract decorator for player objects.
+ * It extends the Player class and provides methods to integrate decoration details.
+ */
 public abstract class PlayerDecorator extends Player {
 
-    private Player player;
-
+    /**
+     * Constructs a PlayerDecorator object for the given player.
+     * @param player the player object to be decorated
+     */
     public PlayerDecorator(Player player) {
-       
-        super(new ArrayList<>(),player.getName());
-        // super( player.lines,player.getName());
-        
-        this.player = player;
-        
-
+        super(player.lines, player.getName());
     }
-    
+    /**
+     * Integrates decoration details into the player's appearance.
+     * This method modifies the appearance lines of the player based on the decoration details provided.
+     * @param decor an ArrayList containing decoration details to be integrated
+     */
     protected void integrateDecor(ArrayList<String> decor) {
-        // Initialize lines with empty strings if it's empty
-         if (lines.isEmpty()) {
-       for (int i = 0; i < decor.size(); i++) {
-          lines.add("");
-        }
-     }
-    
-    for (int i = 0; i < decor.size(); i++) {
-        String line = ""; // Initialize an empty string for the merged line
-        for (int j = 0; j < decor.get(i).length(); j++) {
-            if (decor.get(i).charAt(j) != ' ') { // If the character in decor is not a space
-                if (lines.get(i).length() > j) { // If the current line has characters left
-                    // Append the character from decor
+        for (int i = 0; i < decor.size(); i++) {
+            String line = "";
+            int minLength = Math.min(decor.get(i).length(), lines.get(i).length());
+
+            for (int j = 0; j < minLength; j++) {
+                if (decor.get(i).charAt(j) != ' ') {
                     line += decor.get(i).charAt(j);
-                } else { // If the current line is shorter than the decor line
-                    // Append the character from decor as the line is too short
-                    line += decor.get(i).charAt(j);
-                }
-            } else { // If the character in decor is a space
-                if (lines.get(i).length() > j) { // If the current line has characters left
-                    // Append the character from the current line
+                } else {
                     line += lines.get(i).charAt(j);
-                } else { // If the current line is shorter than the decor line
-                    // Append a space as the line is too short
-                    line += ' ';
                 }
             }
+
+            if (decor.get(i).length() > lines.get(i).length()) {
+                line += decor.get(i).substring(lines.get(i).length());
+            } else if (decor.get(i).length() < lines.get(i).length()) {
+                line += lines.get(i).substring(decor.get(i).length());
+            }
+
+            lines.set(i, line);
         }
-        // Set the merged line back to the lines list
-        lines.set(i, line);
     }
-    // for (int i = 0; i < decor.size(); i++) {
-    //     String line = "";
-    //     for (int j = 0; j < decor.get(i).length(); j++) {
-    //         if (decor.get(i).charAt(j) != ' ') {
-    //             line += decor.get(i).charAt(j);
-    //         } else if (lines.get(i).length() > j) {
-    //             line += lines.get(i).charAt(j);
-    //         }
-    //     }
-    //     lines.set(i, line);
-    // }
 }
-    
-    }
+
+
+
+
 
