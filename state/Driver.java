@@ -3,13 +3,13 @@ package state;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
-public class SpellingDriver {
+public class Driver {
     private static final int NUM_WORDS = 5;
     private Scanner reader;
     private SpellingList spellingList;
     private static final String[] mainOptions = { "Show Round of Words", "Increase Grade", "Decrease Grade", "Quit" };
 
-    public SpellingDriver() {
+    public Driver() {
         reader = new Scanner(System.in);
         spellingList = new SpellingList();
     }
@@ -68,7 +68,7 @@ public class SpellingDriver {
     }
 
     public static void main(String[] args) {
-        SpellingDriver driver = new SpellingDriver();
+        Driver driver = new Driver();
         driver.run();
     }
 }
