@@ -8,4 +8,10 @@ public State(SpellingList spellingList) {
     
 }
 
+public String getNextWord(){
+
+}
+public abstract void increaseGrade();
+public abstract void decreaseGrade();
+
 }
