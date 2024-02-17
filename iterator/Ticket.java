@@ -26,7 +26,7 @@ public class Ticket {
     }
     /**
      * Generates a string representation of the ticket
-     * @return a string representation of the ticket.
+     * @return a string representation of the ticket
      */
     public String toString() {
         return name + "(" + difficulty + ") - " + teamMember;
